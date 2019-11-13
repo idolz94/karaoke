@@ -26,29 +26,29 @@ class KaraokeController extends Controller
             $data->album = [];
             $data->video = [];
             $data->save();
-            foreach ($karaoke['Reviews'] as $key) {
-                $comment[] = array(
-                    'name'=>$key['OwnerFullName'],
-                    'title'=>$key['Title'],
-                    'avatar'=>$key['OwnerAvatar'],
-                    'comment'=>$key['Comment'],
-                    'pictures'=>[],
-                    'rating'=>$key['AvgRating'],
-                    'created_on'=>$key['CreatedOn'],
-                );
-        }
-       // dd($comment);
-        $commentJson = json_encode($comment,true);
-        $comments = new Comment();
-        $comments->karaoke_id = $data->id;
-        $comments->comment = $commentJson;
-        $comments->save();
+            if(sizeof($karaoke['Reviews']) >0){
+                foreach ($karaoke['Reviews'] as $key) {
+                    $comment[] = array(
+                        'name'=>$key['OwnerFullName'],
+                        'title'=>$key['Title'],
+                        'avatar'=>$key['OwnerAvatar'],
+                        'comment'=>$key['Comment'],
+                        'pictures'=>[],
+                        'rating'=>$key['AvgRating'],
+                        'created_on'=>$key['CreatedOn'],
+                    );
+                }
+                $commentJson = json_encode($comment,true);
+                $comments = new Comment();
+                $comments->karaoke_id = $data->id;
+                $comments->comment = $commentJson;
+                $comments->save();
+            }
          return response()->json(['Message'=>'success'],200);
     }
 
     public function show($id){
         $data = Karaoke::find($id);
-       // dd($data->comments()->get());
        if($data){
        $review =$data->comments()->first();
         $data['reviews'] = json_decode($review['comment']);
