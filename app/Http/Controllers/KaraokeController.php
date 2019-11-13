@@ -9,6 +9,7 @@ use App\Comment;
 class KaraokeController extends Controller
 {
     public function crawlSave(Request $request){
+        //convert json to array
         $karaoke =  $request->json()->all();
             //Create and save karaoke
              $data = new Karaoke();
@@ -18,12 +19,14 @@ class KaraokeController extends Controller
             $data->city = $karaoke['City'];
             $data->district = $karaoke['District'];
             $data->address = $karaoke['Address'];
-            $data->phone = $karaoke['Phone']; 
+            $data->phone = $karaoke['Phone'];
+            //check tồn tại price 
             if(isset($karaoke['Price'])){
             $data->price = $karaoke['Price']; 
             }else{
                 $data->price = null;
             }
+            //check tồn tại time
             if(isset($karaoke['TimeOpen'])){
                 $data->time_open = $karaoke['TimeOpen']; 
             }else{
@@ -32,6 +35,7 @@ class KaraokeController extends Controller
             $data->rating = $karaoke['AvgRating'];
             $data->ltn = $karaoke['Latitude'];
             $data->lgn = $karaoke['Longitude'];
+            //check tồn tại và rỗng video 
             if(isset($karaoke['Video']) && sizeof($karaoke['Video']) >0){
                 foreach ($karaoke['Video'] as $key) {
                     $video[] = array(
@@ -43,6 +47,7 @@ class KaraokeController extends Controller
             }else{
                 $data->video = null;
             }
+              //check tồn tại và rỗng album 
             if(isset($karaoke['Album']) && sizeof($karaoke['Album']) >0){
                 foreach ($karaoke['Album'] as $key) {
                     $album[] = array(
@@ -54,8 +59,8 @@ class KaraokeController extends Controller
             }else{
                 $data->album = null;
             }
-           
             $data->save();
+              //check rỗng review 
             if(sizeof($karaoke['Reviews']) >0){
                 foreach ($karaoke['Reviews'] as $key) {
                     $comment[] = array(
@@ -77,6 +82,11 @@ class KaraokeController extends Controller
          return response()->json(['Message'=>'success'],200);
     }
 
+    public function index(){
+        $data = Karaoke::latest()->paginate(10);
+        return response()->json(['Message'=>$data],200); 
+    }
+
     public function show($id){
         $data = Karaoke::find($id);
        if($data){
@@ -94,5 +104,10 @@ class KaraokeController extends Controller
             return response()->json(['Message'=>'delete success'],200);
         }
         return response()->json(['Message'=>'Karaoke do not exits'],404);
+    }
+
+    public function destroyAll(){
+        Karaoke::truncate();
+        return response()->json(['Message'=>'delete success'],200);
     }
 }
