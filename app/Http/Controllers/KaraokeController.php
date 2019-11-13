@@ -49,8 +49,11 @@ class KaraokeController extends Controller
     public function show($id){
         $data = Karaoke::find($id);
        // dd($data->comments()->get());
+       if($data){
        $review =$data->comments()->first();
         $data['reviews'] = json_decode($review['comment']);
         return response()->json(['Message'=>$data],200);
+        }
+        return response()->json(['Message'=>'Karaoke do not exits'],404);
     }
 }
