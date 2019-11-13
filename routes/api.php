@@ -16,3 +16,4 @@ use Illuminate\Http\Request;
 
 
 Route::post('/crawl','KaraokeController@crawlSave');
+Route::get('/karaoke/{id}','KaraokeController@show');

@@ -12,8 +12,8 @@ class Karaoke extends Model
         'lgn','album','video',
     ];
 
-    public function comment(){
-        $this->hasOne(Comment::class,'karaoke_id');
+    public function comments(){
+      return  $this->hasOne(Comment::class);
     }
 
     protected $casts = [

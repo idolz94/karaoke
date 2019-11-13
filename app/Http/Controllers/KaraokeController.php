@@ -10,7 +10,6 @@ class KaraokeController extends Controller
 {
     public function crawlSave(Request $request){
         $karaoke =  $request->json()->all();
-      //  dd($karaoke);
             //Create and save karaoke
              $data = new Karaoke();
             $data->name = $karaoke['Name'];
@@ -37,13 +36,21 @@ class KaraokeController extends Controller
                     'rating'=>$key['AvgRating'],
                     'created_on'=>$key['CreatedOn'],
                 );
-          
-            $commentJson = json_encode($comment);
-            $comments = new Comment();
-            $comments->karaoke_id = $data->id;
-            $comments->comment = $commentJson;
-            $comments->save();
         }
+       // dd($comment);
+        $commentJson = json_encode($comment,true);
+        $comments = new Comment();
+        $comments->karaoke_id = $data->id;
+        $comments->comment = $commentJson;
+        $comments->save();
          return response()->json(['Message'=>'success'],200);
+    }
+
+    public function show($id){
+        $data = Karaoke::find($id);
+       // dd($data->comments()->get());
+       $review =$data->comments()->first();
+        $data['reviews'] = json_decode($review['comment']);
+        return response()->json(['Message'=>$data],200);
     }
 }

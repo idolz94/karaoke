@@ -11,7 +11,7 @@ class Comment extends Model
     ];
 
     public function karaoke(){
-        $this->belongsTo(Karaoke::class,'karaoke_id');
+      return  $this->belongsTo(Karaoke::class,'karaoke_id');
     }
 
     protected $casts = [
