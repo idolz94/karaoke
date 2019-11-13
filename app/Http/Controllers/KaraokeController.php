@@ -13,18 +13,48 @@ class KaraokeController extends Controller
             //Create and save karaoke
              $data = new Karaoke();
             $data->name = $karaoke['Name'];
+            $data->id = $karaoke['Id'];
             $data->avatar = $karaoke['MobilePicturePath'];
             $data->city = $karaoke['City'];
             $data->district = $karaoke['District'];
             $data->address = $karaoke['Address'];
-            $data->phone = "";
-            $data->price = "";
-            $data->time_open = "";
+            $data->phone = $karaoke['Phone']; 
+            if(isset($karaoke['Price'])){
+            $data->price = $karaoke['Price']; 
+            }else{
+                $data->price = null;
+            }
+            if(isset($karaoke['TimeOpen'])){
+                $data->time_open = $karaoke['TimeOpen']; 
+            }else{
+                    $data->time_open = null;
+            }
             $data->rating = $karaoke['AvgRating'];
             $data->ltn = $karaoke['Latitude'];
             $data->lgn = $karaoke['Longitude'];
-            $data->album = [];
-            $data->video = [];
+            if(isset($karaoke['Video']) && sizeof($karaoke['Video']) >0){
+                foreach ($karaoke['Video'] as $key) {
+                    $video[] = array(
+                      'videos'=>$key
+                    );
+                }
+                $videos = json_encode($video,true);
+                $data->video = $videos;
+            }else{
+                $data->video = null;
+            }
+            if(isset($karaoke['Album']) && sizeof($karaoke['Album']) >0){
+                foreach ($karaoke['Album'] as $key) {
+                    $album[] = array(
+                      'images'=>$key
+                    );
+                }
+                $albums = json_encode($album,true);
+                $data->album = $albums;
+            }else{
+                $data->album = null;
+            }
+           
             $data->save();
             if(sizeof($karaoke['Reviews']) >0){
                 foreach ($karaoke['Reviews'] as $key) {
@@ -53,6 +83,15 @@ class KaraokeController extends Controller
        $review =$data->comments()->first();
         $data['reviews'] = json_decode($review['comment']);
         return response()->json(['Message'=>$data],200);
+        }
+        return response()->json(['Message'=>'Karaoke do not exits'],404);
+    }
+
+    public function destroy($id){
+        $data = Karaoke::find($id);
+        if($data){
+            $data->delete();
+            return response()->json(['Message'=>'delete success'],200);
         }
         return response()->json(['Message'=>'Karaoke do not exits'],404);
     }

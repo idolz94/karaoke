@@ -20,14 +20,14 @@ class CreateKaraokesTable extends Migration
             $table->string('city',30);
             $table->string('district',50);
             $table->string('address');
-            $table->string('phone',13);
-            $table->string('price',30);
-            $table->string('time_open',10);
+            $table->string('phone',13)->nullable();
+            $table->string('price',30)->nullable();
+            $table->string('time_open',10)->nullable();
             $table->string('rating',4);
             $table->decimal('ltn',10,8);
             $table->decimal('lgn',11,8);
-            $table->text('album');
-            $table->text('video');
+            $table->text('album')->nullable();
+            $table->text('video')->nullable();
             $table->timestamps();
         });
     }
