@@ -14,18 +14,18 @@ class CreateKaraokesTable extends Migration
     public function up()
     {
         Schema::create('karaokes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->text('avatar');
-            $table->string('city',30);
-            $table->string('district',50);
-            $table->string('address');
+            $table->increments('id');
+            $table->char('name')->nullable();
+            $table->text('avatar')->nullable();
+            $table->char('city')->nullable();
+            $table->char('district')->nullable();
+            $table->string('address')->nullable();
             $table->string('phone',13)->nullable();
             $table->string('price',30)->nullable();
             $table->string('time_open',10)->nullable();
-            $table->string('rating',4);
-            $table->decimal('ltn',10,8);
-            $table->decimal('lgn',11,8);
+            $table->string('rating',10)->nullable();
+            $table->decimal('ltn',10,8)->nullable();
+            $table->decimal('lgn',11,8)->nullable();
             $table->text('album')->nullable();
             $table->text('video')->nullable();
             $table->timestamps();
