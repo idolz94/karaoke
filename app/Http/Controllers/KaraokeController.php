@@ -60,10 +60,15 @@ class KaraokeController extends Controller
             }else{
                 $data->album = null;
             }
-            $data->save();
+            if($data->id === Karaoke::find($data->id)){
+                $data->save();
+            }else{
+                return response()->json(['Message'=>'id has been duplicated'],404);
+            }
               //check rỗng review 
             if(sizeof($karaoke['Reviews']) >0){
                 foreach ($karaoke['Reviews'] as $key) {
+                    //check rỗng picture review
                     if($key['Pictures'] !== Null){
                         foreach ($key['Pictures'] as $item) {
                             $pictures[] = array($item['Url']);
