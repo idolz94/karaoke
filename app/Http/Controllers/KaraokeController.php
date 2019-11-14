@@ -12,6 +12,7 @@ class KaraokeController extends Controller
     public function crawlSave(Request $request){
         //convert json to array
         $karaoke =  $request->json()->all();
+        //dd($karaoke);
             //Create and save karaoke
             $data = new Karaoke();
             $data->name = $karaoke['Name'];
@@ -60,7 +61,7 @@ class KaraokeController extends Controller
             }else{
                 $data->album = null;
             }
-           // dd(Karaoke::find($data->id));
+           // check trùng id crawl
             if(Karaoke::find($data->id)){
                 return response()->json(['Message'=>'id has been duplicated'],404);
             }else{
@@ -123,5 +124,10 @@ class KaraokeController extends Controller
         Karaoke::truncate();
         Comment::truncate();
         return response()->json(['Message'=>'delete success'],200);
+    }
+
+    public function rating(){
+        $data = Karaoke::where('city','Hà Nội')->orderBy('rating','Desc')->paginate(10);
+        return response()->json(['Message'=>$data],200);
     }
 }
