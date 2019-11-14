@@ -22,12 +22,6 @@ class KaraokeController extends Controller
             $data->district = $karaoke['District'];
             $data->address = $karaoke['Address'];
             $data->phone = $karaoke['Phone'];
-            //check tồn tại price 
-            if(isset($karaoke['Price'])){
-            $data->price = $karaoke['Price']; 
-            }else{
-                $data->price = null;
-            }
             //check tồn tại time
             if(isset($karaoke['TimeOpen'])){
                 $data->time_open = $karaoke['TimeOpen']; 

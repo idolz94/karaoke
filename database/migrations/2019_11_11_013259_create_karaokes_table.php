@@ -21,7 +21,6 @@ class CreateKaraokesTable extends Migration
             $table->char('district')->nullable();
             $table->string('address')->nullable();
             $table->char('phone',13)->nullable();
-            $table->string('price',30)->nullable();
             $table->char('time_open',10)->nullable();
             $table->char('rating',10)->nullable();
             $table->decimal('ltn',10,8)->nullable();
