@@ -127,7 +127,7 @@ class KaraokeController extends Controller
     }
 
     public function rating(){
-        $data = Karaoke::where('city','Hà Nội')->orderBy('rating','Desc')->paginate(10);
+        $data = Karaoke::where('city','Hà Nội')->orderBy('rating','Desc')->take(10)->get();
         return response()->json(['Message'=>$data],200);
     }
 }
