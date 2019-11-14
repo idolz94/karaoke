@@ -60,10 +60,11 @@ class KaraokeController extends Controller
             }else{
                 $data->album = null;
             }
-            if($data->id === Karaoke::find($data->id)){
-                $data->save();
-            }else{
+           // dd(Karaoke::find($data->id));
+            if(Karaoke::find($data->id)){
                 return response()->json(['Message'=>'id has been duplicated'],404);
+            }else{
+                $data->save();
             }
               //check rỗng review 
             if(sizeof($karaoke['Reviews']) >0){
