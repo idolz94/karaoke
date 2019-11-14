@@ -108,6 +108,7 @@ class KaraokeController extends Controller
 
     public function destroyAll(){
         Karaoke::truncate();
+        Comment::truncate();
         return response()->json(['Message'=>'delete success'],200);
     }
 }

@@ -16,6 +16,6 @@ use Illuminate\Http\Request;
 
 
 Route::post('/crawl','KaraokeController@crawlSave');
-Route::get('/karaoke/destroyAll','KaraokeController@DestroyAll');
+Route::delete('/karaoke/destroyAll','KaraokeController@DestroyAll');
 
 Route::resource('/karaoke','KaraokeController');
