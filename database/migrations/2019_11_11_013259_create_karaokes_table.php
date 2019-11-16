@@ -20,9 +20,9 @@ class CreateKaraokesTable extends Migration
             $table->char('city')->nullable();
             $table->char('district')->nullable();
             $table->string('address')->nullable();
-            $table->char('phone',13)->nullable();
-            $table->char('time_open',10)->nullable();
-            $table->char('rating',10)->nullable();
+            $table->char('phone',20)->nullable();
+            $table->char('time_open',20)->nullable();
+            $table->char('rating',20)->nullable();
             $table->decimal('ltn',10,8)->nullable();
             $table->decimal('lgn',11,8)->nullable();
             $table->text('album')->nullable();
