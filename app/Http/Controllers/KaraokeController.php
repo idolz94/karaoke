@@ -22,6 +22,7 @@ class KaraokeController extends Controller
             $data->district = $karaoke['District'];
             $data->address = $karaoke['Address'];
             $data->phone = $karaoke['Phone'];
+            $data->detail_url = $karaoke['DetailUrl'];
             //check tồn tại time
             if(isset($karaoke['TimeOpen'])){
                 $data->time_open = $karaoke['TimeOpen']; 
