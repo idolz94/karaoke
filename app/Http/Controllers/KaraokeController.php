@@ -96,22 +96,18 @@ class KaraokeController extends Controller
     }
 
     public function show($id){
-        $data = Karaoke::find($id);
-        if($data){
-        $review =$data->comments()->first();
-        $data['reviews'] = json_decode($review['comment']);
-        return response()->json(['Message'=>$data],200);
-        }
-        return response()->json(['Message'=>'Karaoke do not exits'],404);
+        $data = Karaoke::findOrFail($id);
+            $review =$data->comments()->first();
+            $data['reviews'] = json_decode($review['comment']);
+            return response()->json(['Message'=>$data],200);
+       // return response()->json(['Message'=>'Karaoke do not exits'],404);
     }
 
     public function destroy($id){
-        $data = Karaoke::find($id);
-        if($data){
-            $data->delete();
-            return response()->json(['Message'=>'delete success'],200);
-        }
-        return response()->json(['Message'=>'Karaoke do not exits'],404);
+        $data = Karaoke::findOrFail($id);
+        $data->delete();
+        return response()->json(['Message'=>'delete success'],200);
+      //  return response()->json(['Message'=>'Karaoke do not exits'],404);
     }
 
     public function destroyAll(){
@@ -121,7 +117,7 @@ class KaraokeController extends Controller
     }
 
     public function rating(){
-        $data = Karaoke::where('city','Hà Nội')->orderBy('rating','Desc')->take(10)->get();
+        $data = Karaoke::where('city','Hà Nội')->orderBy('rating','DESC')->take(10)->get();
         return response()->json(['Message'=>$data],200);
     }
 }
