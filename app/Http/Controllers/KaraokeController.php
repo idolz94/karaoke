@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Karaoke;
 use App\Comment;
-use DateTime;
 class KaraokeController extends Controller
 {
     public function crawlSave(Request $request){
@@ -92,14 +91,14 @@ class KaraokeController extends Controller
     }
 
     public function index(){
-        $data = Karaoke::latest()->paginate(10);
+        $data = Karaoke::simplePaginate(10);
         return response()->json(['Message'=>$data],200); 
     }
 
     public function show($id){
         $data = Karaoke::find($id);
-       if($data){
-       $review =$data->comments()->first();
+        if($data){
+        $review =$data->comments()->first();
         $data['reviews'] = json_decode($review['comment']);
         return response()->json(['Message'=>$data],200);
         }
