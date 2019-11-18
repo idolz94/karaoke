@@ -97,9 +97,9 @@ class KaraokeController extends Controller
 
     public function show($id){
         $data = Karaoke::findOrFail($id);
-            $review =$data->comments()->first();
-            $data['reviews'] = json_decode($review['comment']);
-            return response()->json(['Message'=>$data],200);
+        $review =$data->comments()->first();
+        $data['reviews'] = json_decode($review['comment']);
+        return response()->json(['Message'=>$data],200);
        // return response()->json(['Message'=>'Karaoke do not exits'],404);
     }
 
@@ -117,7 +117,7 @@ class KaraokeController extends Controller
     }
 
     public function rating(){
-        $data = Karaoke::where('city','Hà Nội')->orderBy('rating','DESC')->take(10)->get();
+        $data = Karaoke::whereCity('Hà Nội')->orderBy('rating','DESC')->take(10)->get();
         return response()->json(['Message'=>$data],200);
     }
 }
