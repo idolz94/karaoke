@@ -91,7 +91,7 @@ class KaraokeController extends Controller
     }
 
     public function index(){
-        $data = Karaoke::simplePaginate(10);
+        $data = Karaoke::oldest()->simplePaginate(10);
         return response()->json(['Message'=>$data],200); 
     }
 
