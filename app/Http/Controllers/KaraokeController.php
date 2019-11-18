@@ -80,7 +80,7 @@ class KaraokeController extends Controller
     }
 
     public function index(){
-        $data = Karaoke::oldest()->simplePaginate(10);
+        $data = Karaoke::oldest()->paginate(10);
         return response()->json(['Message'=>$data],200); 
     }
 
