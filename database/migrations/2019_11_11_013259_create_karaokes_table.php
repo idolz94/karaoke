@@ -15,14 +15,14 @@ class CreateKaraokesTable extends Migration
     {
         Schema::create('karaokes', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name')->nullable();
+            $table->string('name')->nullable();
             $table->text('avatar')->nullable();
-            $table->char('city')->nullable();
-            $table->char('district')->nullable();
+            $table->string('city')->nullable();
+            $table->string('district')->nullable();
             $table->string('address')->nullable();
-            $table->char('phone',20)->nullable();
-            $table->char('time_open')->nullable();
-            $table->char('rating',20)->nullable();
+            $table->string('phone',20)->nullable();
+            $table->string('time_open')->nullable();
+            $table->string('rating',20)->nullable();
             $table->decimal('ltn',10,8)->nullable();
             $table->decimal('lgn',11,8)->nullable();
             $table->text('detail_url')->nullable();

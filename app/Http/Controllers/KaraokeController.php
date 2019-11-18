@@ -31,6 +31,7 @@ class KaraokeController extends Controller
             $data->rating = $karaoke['AvgRating'];
             $data->ltn = $karaoke['Latitude'];
             $data->lgn = $karaoke['Longitude'];
+            $data->album = $karaoke['AlbumUrl'];
             //check tồn tại và rỗng video 
             if(isset($karaoke['Video']) && sizeof($karaoke['Video']) >0){
                 foreach ($karaoke['Video'] as $key) {
@@ -42,18 +43,6 @@ class KaraokeController extends Controller
                 $data->video = $videos;
             }else{
                 $data->video = null;
-            }
-              //check tồn tại và rỗng album 
-            if(isset($karaoke['Album']) && sizeof($karaoke['Album']) >0){
-                foreach ($karaoke['Album'] as $key) {
-                    $album[] = array(
-                    'images'=>$key
-                    );
-                }
-                $albums = json_encode($album,true);
-                $data->album = $albums;
-            }else{
-                $data->album = null;
             }
            // check trùng id crawl
             if(Karaoke::find($data->id)){
@@ -119,5 +108,10 @@ class KaraokeController extends Controller
     public function rating(){
         $data = Karaoke::whereCity('Hà Nội')->orderBy('rating','DESC')->take(10)->get();
         return response()->json(['Message'=>$data],200);
+    }
+
+    public function getAll(){
+        $data = Karaoke::all();
+        return response()->json(['Message'=>$data],200); 
     }
 }
