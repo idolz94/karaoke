@@ -19,5 +19,6 @@ Route::post('/crawl','KaraokeController@crawlSave');
 Route::delete('/karaoke/destroyAll','KaraokeController@DestroyAll');
 Route::get('/karaoke/rating','KaraokeController@rating');
 Route::get('/karaoke/getAll','KaraokeController@getAll');
+Route::get('/listProvinces','KaraokeController@listProvinces');
 
 Route::resource('/karaoke','KaraokeController');
