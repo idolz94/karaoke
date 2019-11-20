@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Karaoke;
@@ -106,7 +106,7 @@ class KaraokeController extends Controller
     }
 
     public function rating(){
-        $data = Karaoke::whereCity('Hà Nội')->orderBy('rating','DESC')->take(10)->get();
+        $data = Karaoke::whereCity('Hà Nội')->orderBy(DB::raw('ABS(rating)'),'DESC')->take(10)->get();
         return response()->json(['Message'=>$data],200);
     }
 
