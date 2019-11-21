@@ -54,21 +54,22 @@ class KaraokeController extends Controller
               //check rỗng review 
             if(sizeof($karaoke['Reviews']) >0){
                 foreach ($karaoke['Reviews'] as $key) {
-                    //check rỗng picture review
-                    if($key['Pictures'] !== Null){
-                        foreach ($key['Pictures'] as $item) {
-                            $pictures[] = array($item['Url']);
-                        }
-                    }else{
-                        $pictures = null;
-                    }
                     $comment[] = array(
-                        'name'=>$key['OwnerFullName'],
-                        'title'=>$key['Title'],
-                        'avatar'=>$key['OwnerAvatar'],
-                        'comment'=>$key['Comment'],
-                        'pictures'=>$pictures,
-                        'rating'=>$key['AvgRating'],
+                        'Id'=>$key['Id'],
+                        'RestaurantID'=>$key['RestaurantID'],
+                        'RestaurantStatus'=>$key['RestaurantStatus'],
+                        'UserID'=>$key['UserID'],
+                        'Title'=>$key['Title'],
+                        'Comment'=>$key['Comment'],
+                        'CreatedOn'=>$key['CreatedOn'],
+                        'Rating'=>$key['AvgRating'],
+                        'UserName'=>$key['OwnerUserName'],
+                        'FirstName'=>$key['OwnerFirstName'],
+                        'LastName'=>$key['OwnerLastName'],
+                        'FullName'=>$key['OwnerFullName'],
+                        'Url'=>$key['Url'],
+                        'Avatar'=>$key['OwnerAvatar'],
+                        'ProfileUrl'=>$key['OwnerProfileUrl'],
                     );
                 }
                 $commentJson = json_encode($comment,true);
