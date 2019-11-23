@@ -14,20 +14,26 @@ class KaraokeController extends Controller
     public function crawlSave(Request $request){
         //convert json to array
         $karaoke =  $request->json()->all();
+        $city =  City::where('name',$karaoke['City'])->first();
+        if($city == Null){
             $city = new City();
             $city->name = $karaoke['City'];
             $city->save();
+        }
             //Create and save karaoke
+        $district =  District::where('name',$karaoke['District'])->first();
+        if($district == null){
             $district = new District();
-            $district->ma_qh = $karaoke['DistrictId'];
+            $district->id = $karaoke['DistrictId'];
             $district->name = $karaoke['District'];
-            $district->ma_tp = $city->id;
+            $district->city_id = $city->id;
             $district->save();
+        }
             $data = new Karaoke();
             $data->name = $karaoke['Name'];
             $data->id = $karaoke['Id'];
             $data->avatar = $karaoke['MobilePicturePath'];
-            $data->district_id = $district->ma_qh;
+            $data->district_id = $district->id;
             $data->address = $karaoke['Address'];
             $data->phone = $karaoke['Phone'];
             $data->detail_url = $karaoke['DetailUrl'];
