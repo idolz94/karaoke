@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Karaoke;
 use App\Comment;
+use App\District;
+use App\City;
 use DB;
 use Illuminate\Support\Facades\Redis;
 class KaraokeController extends Controller
@@ -12,14 +14,20 @@ class KaraokeController extends Controller
     public function crawlSave(Request $request){
         //convert json to array
         $karaoke =  $request->json()->all();
-        //dd($karaoke);
+            $city = new City();
+            $city->name = $karaoke['City'];
+            $city->save();
             //Create and save karaoke
+            $district = new District();
+            $district->ma_qh = $karaoke['DistrictId'];
+            $district->name = $karaoke['District'];
+            $district->ma_tp = $city->id;
+            $district->save();
             $data = new Karaoke();
             $data->name = $karaoke['Name'];
             $data->id = $karaoke['Id'];
             $data->avatar = $karaoke['MobilePicturePath'];
-            $data->city = $karaoke['City'];
-            $data->district = $karaoke['District'];
+            $data->district_id = $district->ma_qh;
             $data->address = $karaoke['Address'];
             $data->phone = $karaoke['Phone'];
             $data->detail_url = $karaoke['DetailUrl'];
@@ -29,7 +37,11 @@ class KaraokeController extends Controller
             }else{
                     $data->time_open = null;
             }
-            $data->rating = $karaoke['AvgRating'];
+            if(is_numeric($karaoke['AvgRating'])){
+                $data->rating = $karaoke['AvgRating'];
+            }else{
+                $data->rating = null;
+            }
             $data->ltn = $karaoke['Latitude'];
             $data->lgn = $karaoke['Longitude'];
             $data->album = $karaoke['AlbumUrl'];
@@ -155,7 +167,8 @@ class KaraokeController extends Controller
     }
 
 	public function testAll(){
-        
+
+       
 	}
     // public function distance($lng,$lng1,$lat,$lat1){
     //     $theta =  $lng - $lng1;

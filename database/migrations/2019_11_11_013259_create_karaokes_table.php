@@ -17,12 +17,11 @@ class CreateKaraokesTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->text('avatar')->nullable();
-            $table->string('city')->nullable();
-            $table->string('district')->nullable();
+            $table->unsignedInteger('district_id')->nullable();
             $table->string('address')->nullable();
             $table->string('phone',20)->nullable();
             $table->string('time_open')->nullable();
-            $table->string('rating',20)->nullable();
+            $table->decimal('rating',10,1)->nullable();
             $table->decimal('ltn',10,8)->nullable();
             $table->decimal('lgn',11,8)->nullable();
             $table->text('detail_url')->nullable();
