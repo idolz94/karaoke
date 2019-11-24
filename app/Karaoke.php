@@ -13,15 +13,11 @@ class Karaoke extends Model
     ];
 
     public function comments(){
-      return  $this->hasOne(Comment::class);
+      return  $this->hasOne(Comment::class,'id','karaoke_id');
     }
 
     public function district(){
       return  $this->hasMany(District::class,'id','district_id');
     }
 
-    protected $casts = [
-        'album' => 'json',
-        'video' => 'json',
-      ];
 }

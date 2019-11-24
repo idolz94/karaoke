@@ -100,32 +100,26 @@ class KaraokeController extends Controller
     }
 
     public function index(){
-        // $data = Karaoke::oldest()->paginate(10);
-        // foreach ($data as $key) {
-        //   $district = District::find($key->district_id);
-        //     $city = City::find($district->city_id)->first();
-        //     $key['district'] = $district['name'];
-        //     $key['city'] = $city['name'];
-        // }
-        $data = DB::table('districts')->join('karaokes','districts.id','=','karaokes.district_id')
-                                      ->join('cities','districts.city_id','=','cities.id')
-                                      ->select('karaokes.*','districts.name as district','cities.name as city')->oldest()->paginate(10);
+        $data =  District::join('karaokes','districts.id','=','karaokes.district_id')
+                            ->join('cities','districts.city_id','=','cities.id')
+                            ->select('karaokes.*','districts.name as district','cities.name as city')->oldest()->paginate(10);
         return response()->json(['Message'=>$data],200); 
     }
 
     public function show($id){
-        $data = Karaoke::findOrFail($id);
-        $review =$data->comments()->first();
+        $data =  District::join('karaokes','districts.id','=','karaokes.district_id')
+        ->join('cities','districts.city_id','=','cities.id')->where('karaokes.id','=',$id)
+        ->select('karaokes.*','districts.name as district','cities.name as city')->first();
+        $review = Comment::where('karaoke_id',$data->id)->first();
         $data['reviews'] = json_decode($review['comment']);
+        
         return response()->json(['Message'=>$data],200);
-       // return response()->json(['Message'=>'Karaoke do not exits'],404);
     }
 
     public function destroy($id){
         $data = Karaoke::findOrFail($id);
         $data->delete();
         return response()->json(['Message'=>'delete success'],200);
-      //  return response()->json(['Message'=>'Karaoke do not exits'],404);
     }
 
     public function destroyAll(){
@@ -136,14 +130,16 @@ class KaraokeController extends Controller
 
     public function rating(){
     $city = "Hà Nội";
-    $data = DB::table('districts')->join('karaokes','districts.id','=','karaokes.district_id')
+    $data =  District::join('karaokes','districts.id','=','karaokes.district_id')
     ->join('cities','districts.city_id','=','cities.id')->where('cities.name','=',$city)
     ->select('karaokes.*','districts.name as district','cities.name as city')->orderBy('karaokes.rating','desc')->take(10)->get();
        return response()->json(['Message'=>$data],200);
     }
 
     public function getAll(){
-        $data = Karaoke::all();
+        $data = District::join('karaokes','districts.id','=','karaokes.district_id')
+        ->join('cities','districts.city_id','=','cities.id')
+        ->select('karaokes.*','districts.name as district','cities.name as city')->get();
 	return response()->json(['Message'=>$data],200); 
     }
 
