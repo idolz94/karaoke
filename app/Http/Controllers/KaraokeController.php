@@ -100,7 +100,16 @@ class KaraokeController extends Controller
     }
 
     public function index(){
-        $data = Karaoke::oldest()->paginate(10);
+        // $data = Karaoke::oldest()->paginate(10);
+        // foreach ($data as $key) {
+        //   $district = District::find($key->district_id);
+        //     $city = City::find($district->city_id)->first();
+        //     $key['district'] = $district['name'];
+        //     $key['city'] = $city['name'];
+        // }
+        $data = DB::table('districts')->join('karaokes','districts.id','=','karaokes.district_id')
+                                      ->join('cities','districts.city_id','=','cities.id')
+                                      ->select('karaokes.*','districts.name as district','cities.name as city')->oldest()->paginate(10);
         return response()->json(['Message'=>$data],200); 
     }
 
@@ -126,7 +135,10 @@ class KaraokeController extends Controller
     }
 
     public function rating(){
-        $data = Karaoke::whereCity('Hà Nội')->orderBy(DB::raw('ABS(rating)'),'DESC')->take(10)->get();
+    $city = "Hà Nội";
+    $data = DB::table('districts')->join('karaokes','districts.id','=','karaokes.district_id')
+    ->join('cities','districts.city_id','=','cities.id')->where('cities.name','=',$city)
+    ->select('karaokes.*','districts.name as district','cities.name as city')->orderBy('karaokes.rating','desc')->take(10)->get();
        return response()->json(['Message'=>$data],200);
     }
 

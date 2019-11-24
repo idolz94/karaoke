@@ -17,7 +17,7 @@ class Karaoke extends Model
     }
 
     public function district(){
-      return  $this->hasMany(District::class,'district_id');
+      return  $this->hasMany(District::class,'id','district_id');
     }
 
     protected $casts = [
