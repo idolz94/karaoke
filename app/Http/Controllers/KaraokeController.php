@@ -99,15 +99,21 @@ class KaraokeController extends Controller
     public function show($id){
         $data =  District::join('karaokes','districts.id','=','karaokes.district_id')
         ->join('cities','districts.city_id','=','cities.id')->where('karaokes.id','=',$id)
-        ->select('karaokes.*','districts.name as district','cities.name as city')->first();
-        $review = Comment::where('karaoke_id',$data->id)->first();
-        $data['reviews'] = json_decode($review['comment']);
-        
-        return response()->json(['Message'=>$data],200);
+        ->select('karaokes.*','districts.name as district','cities.name as city')->first();  
+        if($data){  
+            $review = Comment::where('karaoke_id',$data->id)->first();
+            $data['reviews'] = json_decode($review['comment']);
+            return response()->json(['Message'=>$data],200);
+        }
+        return response()->json(['Message'=>'Karaoke do not exits ! '],404);
     }
 
     public function destroy($id){
         $data = Karaoke::findOrFail($id);
+        $review = Comment::where('karaoke_id',$id)->first();
+        if($review){
+            $review->delete();
+        }
         $data->delete();
         return response()->json(['Message'=>'delete success'],200);
     }
