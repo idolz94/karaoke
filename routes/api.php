@@ -21,6 +21,8 @@ Route::get('/karaoke/rating','KaraokeController@rating');
 Route::get('/karaoke/getAll','KaraokeController@getAll');
 Route::get('/listProvinces','KaraokeController@listProvinces');
 Route::get('/karaoke/testAll','KaraokeController@testAll');
+//Route::get('/get','KaraokeController@get');
+
 
 
 Route::resource('/karaoke','KaraokeController');

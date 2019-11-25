@@ -1,0 +1,95 @@
+{
+    "name": "Thành phố Hà Nội",
+    "cities": [
+        {
+            "20": "Quận Ba Đình"
+        },
+        {
+            "25": "Quận Hoàn Kiếm"
+        },
+        {
+            "28": "Quận Tây Hồ"
+        },
+        {
+            "27": "Quận Long Biên"
+        },
+        {
+            "21": "Quận Cầu Giấy"
+        },
+        {
+            "22": "Quận Đống Đa"
+        },
+        {
+            "24": "Quận Hai Bà Trưng"
+        },
+        {
+            "26": "Quận Hoàng Mai"
+        },
+        {
+            "29": "Quận Thanh Xuân"
+        },
+        {
+            "685": "Huyện Sóc Sơn"
+        },
+        {
+            "677": "Huyện Đông Anh"
+        },
+        {
+            "678": "Huyện Gia Lâm"
+        },
+        {
+            "945": "Quận Nam Từ Liêm"
+        },
+        {
+            "688": "Huyện Thanh Trì"
+        },
+        {
+            "23": "Quận Bắc Từ Liêm"
+        },
+        {
+            "680": "Huyện Mê Linh"
+        },
+        {
+            "123": "Quận Hà Đông"
+        },
+        {
+            "692": "Thị xã Sơn Tây"
+        },
+        {
+            "674": "Huyện Ba Vì"
+        },
+        {
+            "676": "Huyện Đan Phượng"
+        },
+        {
+            "679": "Huyện Hoài Đức"
+        },
+        {
+            "686": "Huyện Thạch Thất"
+        },
+        {
+            "681": "Huyện Mỹ Đức"
+        },
+        {
+            "946": "Huyện Phúc Thọ"
+        },
+        {
+            "947": "Huyện Quốc Oai"
+        },
+        {
+            "948": "Huyện Chương Mỹ"
+        },
+        {
+            "949": "Huyện Thanh Oai"
+        },
+        {
+            "950": "Huyện Thường Tín"
+        },
+        {
+            "951": "Huyện Phú Xuyên"
+        },
+        {
+            "952": "Huyện Ứng Hòa"
+        }
+    ]
+}
