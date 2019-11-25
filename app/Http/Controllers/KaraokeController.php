@@ -73,21 +73,11 @@ class KaraokeController extends Controller
             if(sizeof($karaoke['Reviews']) >0){
                 foreach ($karaoke['Reviews'] as $key) {
                     $comment[] = array(
-                        'Id'=>$key['Id'],
-                        'RestaurantID'=>$key['RestaurantID'],
-                        'RestaurantStatus'=>$key['RestaurantStatus'],
-                        'UserID'=>$key['UserID'],
-                        'Title'=>$key['Title'],
                         'Comment'=>$key['Comment'],
                         'CreatedOn'=>$key['CreatedOn'],
                         'Rating'=>$key['AvgRating'],
-                        'UserName'=>$key['OwnerUserName'],
-                        'FirstName'=>$key['OwnerFirstName'],
-                        'LastName'=>$key['OwnerLastName'],
                         'FullName'=>$key['OwnerFullName'],
-                        'Url'=>$key['Url'],
                         'Avatar'=>$key['OwnerAvatar'],
-                        'ProfileUrl'=>$key['OwnerProfileUrl'],
                     );
                 }
                 $commentJson = json_encode($comment,true);
@@ -182,7 +172,15 @@ class KaraokeController extends Controller
 
 	public function testAll(){
 
-       
+	if($data = json_decode(Redis::get('test.All'))){
+		 return response()->json(['Message'=>$data],200); 
+	}
+ 	    $data = District::join('karaokes','districts.id','=','karaokes.district_id')
+        	->join('cities','districts.city_id','=','cities.id')
+       		->select('karaokes.*','districts.name as district','cities.name as city')->get();
+        	Redis::setex('test.All',60*60*24,json_encode($data));
+		return response()->json(['Message'=>$data],200); 
+      
 	}
     // public function distance($lng,$lng1,$lat,$lat1){
     //     $theta =  $lng - $lng1;
