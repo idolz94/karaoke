@@ -1,5 +1,6 @@
 {
-    "name": "Thành phố Hà Nội",
+    "name": "Hà Nội",
+    "url": "ha-noi",
     "cities": [
         {
             "20": "Quận Ba Đình"
