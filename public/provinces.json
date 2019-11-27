@@ -1,4 +1,4 @@
-{
+[{
     "name": "Hà Nội",
     "url": "ha-noi",
     "cities": [
@@ -93,4 +93,65 @@
             "952": "Huyện Ứng Hòa"
         }
     ]
+},
+{
+    "name": "Đà Nẵng",
+    "url": "da-nang",
+    "cities": [
+        {
+            "32": "Quận Liên Chiểu"
+        },
+        {
+            "35": "Quận Thanh Khê"
+        },
+        {
+            "31": "Quận Hải Châu"
+        },
+        {
+            "34": "Quận Sơn Trà"
+        },
+        {
+            "33": "Quận Ngũ Hành Sơn"
+        },
+        {
+            "30": "Quận Cẩm Lệ"
+        },
+        {
+            "158": "Huyện Hòa Vang"
+        },
+        {
+            "159": "Huyện Hoàng Sa"
+        }
+    ]
+},
+{
+    "name": "Bắc Ninh",
+    "url": "bac-ninh",
+    "cities": [
+        {
+            "216": "Thành phố Bắc Ninh"
+        },
+        {
+            "222": "Huyện Tiên Du"
+        },
+        {
+            "217": "Thị xã Từ Sơn"
+        },
+        {
+            "221": "Huyện Thuận Thành"
+        },
+        {
+            "223": "Huyện Yên Phong"
+        },
+        {
+            "224": "Huyện Quế Võ"
+        },
+        {
+            "225": "Huyện Gia Bình"
+        },
+        {
+            "226": "Huyện Lương Tài"
+        }
+    ]
 }
+]

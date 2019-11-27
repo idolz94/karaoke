@@ -93,6 +93,7 @@ class KaraokeController extends Controller
     }
 
     public function indexCity($city){
+    
         $data =  District::join('karaokes','districts.id','=','karaokes.district_id')
         ->join('cities','districts.city_id','=','cities.id')->where('cities.url','=',$city)
         ->select('karaokes.*','districts.name as district','cities.name as city')->oldest()->paginate(10);
@@ -158,36 +159,41 @@ class KaraokeController extends Controller
 		return response()->json(['Message'=>$data],200); 
       
     }
-    // public function get(){
-    //     $city = DB::table('devvn_tinhthanhpho')->get();
-    //     $district = District::all();
-    //     $quanhuyen = DB::table('devvn_quanhuyen')->get();
-    //     foreach ($city as $cities) {
-    //         foreach ($quanhuyen as $value) {
-    //             if($cities->matp == $value->matp){
-    //                 $name = trim(str_replace("Huyện",'',$value->name));
-    //                 foreach ($district as $key) {
-                     
-    //                     if($key->name == $name){
-    //                         $get[$key->id] = $value->name;
-    //                     }else{
-    //                     $a[] = $value->name;
-    //                     }
-    //                 }
+    public function get(){
+        $city = DB::table('devvn_tinhthanhpho')->get();
+        $quanhuyen = DB::table('devvn_quanhuyen')->get();
+        $district = District::all();
+        foreach ($city as $cities) {
+            if($cities->name == "Tỉnh Bắc Ninh"){
+                foreach ($quanhuyen as $value) {
+                        
+                        if($cities->matp == $value->matp){
+                       
+                            $name = trim(str_replace("Huyện",'',$value->name));
+                            foreach ($district as $key) {
+                            
+                                if($key->name == $name){
+                                    $get[$key->id] = $value->name;
+                                }else{
+                                $a[] = $value->name;
+                                }
+                            }
+                        }   
+                    }
+                $diff = array_unique(array_diff($a,$get));
+            $merge = array_merge($get,$diff);
+            foreach ($diff as $key) {
+                array_push($get,$key);
+            }
+            $cities = trim(str_replace("Tỉnh",'',$cities->name));
+            foreach ($get as $key => $value) {
                 
-    //             }
-    //         }
-    //         $diff = array_unique(array_diff($a,$get));
-    //        $merge = array_merge($get,$diff);
-    //        foreach ($diff as $key) {
-    //         array_push($get,$key);
-    //        }
-    //        foreach ($get as $key => $value) {
-              
-    //             $all['name'] = $cities->name;
-    //              $all['cities'][] = [$key => $value];
-    //        }
-    //        return response()->json(['Message'=>$all],200); 
-    //     }
-    // }
+                    $all['name'] = $cities;
+                    $all['url'] = str_slug($cities);
+                    $all['cities'][] = [$key => $value];
+            }
+            return response()->json(['Message'=>$all],200); 
+            }
+        }
+    }
 }
