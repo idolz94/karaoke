@@ -16,7 +16,7 @@ class KaraokeController extends Controller
         $karaoke =  $request->json()->all();
 
         // check có tồn tại city
-        $city =  City::where('name',$karaoke['City'])->first();
+        $city = City::where('name','=',$karaoke['City'])->first();
         if($city == Null){
             $city = new City();
             $city->name = $karaoke['City'];
@@ -24,7 +24,7 @@ class KaraokeController extends Controller
             $city->save();
         }
             //check có tồn tại tỉnh, thành
-        $district =  District::where('name',$karaoke['District'])->first();
+        $district =  District::where('name','=',$karaoke['District'])->first();
         if($district == null){
             $district = new District();
             $district->id = $karaoke['DistrictId'];
