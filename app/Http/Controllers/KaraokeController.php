@@ -14,13 +14,16 @@ class KaraokeController extends Controller
     public function crawlSave(Request $request){
         //convert json to array
         $karaoke =  $request->json()->all();
+
+        // check có tồn tại city
         $city =  City::where('name',$karaoke['City'])->first();
         if($city == Null){
             $city = new City();
             $city->name = $karaoke['City'];
+            $city->url = str_slug($karaoke['City'],'-');
             $city->save();
         }
-            //Create and save karaoke
+            //check có tồn tại tỉnh, thành
         $district =  District::where('name',$karaoke['District'])->first();
         if($district == null){
             $district = new District();
@@ -89,10 +92,10 @@ class KaraokeController extends Controller
             return response()->json(['Message'=>'success'],200);
     }
 
-    public function index(){
+    public function indexCity($city){
         $data =  District::join('karaokes','districts.id','=','karaokes.district_id')
-                            ->join('cities','districts.city_id','=','cities.id')
-                            ->select('karaokes.*','districts.name as district','cities.name as city')->oldest()->paginate(10);
+        ->join('cities','districts.city_id','=','cities.id')->where('cities.url','=',$city)
+        ->select('karaokes.*','districts.name as district','cities.name as city')->oldest()->paginate(10);
         return response()->json(['Message'=>$data],200); 
     }
 
@@ -124,17 +127,16 @@ class KaraokeController extends Controller
         return response()->json(['Message'=>'delete success'],200);
     }
 
-    public function rating(){
-    $city = "Hà Nội";
+    public function rating($city){
     $data =  District::join('karaokes','districts.id','=','karaokes.district_id')
-    ->join('cities','districts.city_id','=','cities.id')->where('cities.name','=',$city)
+    ->join('cities','districts.city_id','=','cities.id')->where('cities.url','=',$city)
     ->select('karaokes.*','districts.name as district','cities.name as city')->orderBy('karaokes.rating','desc')->take(10)->get();
-       return response()->json(['Message'=>$data],200);
+        return response()->json(['Message'=>$data],200);
     }
 
-    public function getAll(){
+    public function getAll($city){
         $data = District::join('karaokes','districts.id','=','karaokes.district_id')
-        ->join('cities','districts.city_id','=','cities.id')
+        ->join('cities','districts.city_id','=','cities.id')->where('cities.url','=',$city)
         ->select('karaokes.*','districts.name as district','cities.name as city')->get();
 	return response()->json(['Message'=>$data],200); 
     }
@@ -146,9 +148,8 @@ class KaraokeController extends Controller
     }
 
 	public function testAll(){
-
-	if($data = json_decode(Redis::get('test.All'))){
-		 return response()->json(['Message'=>$data],200); 
+        if($data = json_decode(Redis::get('test.All'))){
+            return response()->json(['Message'=>$data],200); 
 	}
  	    $data = District::join('karaokes','districts.id','=','karaokes.district_id')
         	->join('cities','districts.city_id','=','cities.id')
@@ -188,29 +189,5 @@ class KaraokeController extends Controller
     //        }
     //        return response()->json(['Message'=>$all],200); 
     //     }
-    // }
-
-    
-    // public function distance($lng,$lng1,$lat,$lat1){
-    //     $theta =  $lng - $lng1;
-    //     $miles = (sin(deg2rad($lat)) * sin(deg2rad($lat1))) + (cos(deg2rad($lat)) * cos(deg2rad($lat1)) * cos(deg2rad($theta)));
-    //     $miles = acos($miles);
-    //     $miles = rad2deg($miles);
-    //     $miles = $miles * 60 * 1.1515;
-    //     $feet = $miles * 5280;
-    //     $yards = $feet / 3;
-    //     $kilometers = $miles * 1.609344;
-    //     return $meters = $kilometers * 1000;
-    // }
-    // public function map(Request $request){
-    //     $data = $request->json()->all();
-    //     $lat = $data['Latitude'];
-    //     $lng = $data['Longitude'];
-    //     $karaoke = Karaoke::all();
-    //     foreach ($karaoke as $key) {
-    //      $key['distance'] = $this->distance($lng,$key['lgn'],$lat,$key['ltn']);
-    //     }
-    //     $kara = $karaoke->sortBy('distance');
-    //     return response()->json(['Message'=>$kara],200); 
     // }
 }
