@@ -153,5 +153,230 @@
             "226": "Huyện Lương Tài"
         }
     ]
+},
+{
+    "name": "Cần Thơ",
+    "url": "can-tho",
+    "cities": [
+        {
+            "43": "Quận Ninh Kiều"
+        },
+        {
+            "46": "Quận Ô Môn"
+        },
+        {
+            "45": "Quận Cái Răng"
+        },
+        {
+            "118": "Huyện Phong Điền"
+        },
+        {
+            "119": "Quận Bình Thuỷ"
+        },
+        {
+            "120": "Quận Thốt Nốt"
+        },
+        {
+            "121": "Huyện Vĩnh Thạnh"
+        },
+        {
+            "122": "Huyện Cờ Đỏ"
+        },
+        {
+            "123": "Huyện Thới Lai"
+        }
+    ]
+},
+{
+    "name": "Bà Rịa - Vũng Tàu",
+    "url": "ba-ria-vung-tau",
+    "cities": [
+        {
+            "58": "Thành phố Vũng Tàu"
+        },
+        {
+            "59": "Thành phố Bà Rịa"
+        },
+        {
+            "60": "Huyện Châu Đức"
+        },
+        {
+            "61": "Huyện Xuyên Mộc"
+        },
+        {
+            "62": "Huyện Long Điền"
+        },
+        {
+            "63": "Huyện Đất Đỏ"
+        },
+        {
+            "64": "Huyện Tân Thành"
+        },
+        {
+            "65": "Huyện Côn Đảo"
+        }
+    ]
+},
+{
+    "name": "Khánh Hòa",
+    "url": "khanh-hoa",
+    "cities": [
+        {
+            "386": "Thành phố Nha Trang"
+        },
+        {
+            "387": "Thành phố Cam Ranh"
+        },
+        {
+            "388": "Huyện Cam Lâm"
+        },
+        {
+            "389": "Huyện Vạn Ninh"
+        },
+        {
+            "390": "Thị xã Ninh Hòa"
+        },
+        {
+            "391": "Huyện Khánh Vĩnh"
+        },
+        {
+            "392": "Huyện Diên Khánh"
+        },
+        {
+            "393": "Huyện Khánh Sơn"
+        },
+        {
+            "394": "Huyện Trường Sa"
+        }
+    ]
+},
+{
+    "name": "Hải Phòng",
+    "url": "hai-phong",
+    "cities": [
+        {
+            "40": "Quận Hồng Bàng"
+        },
+        {
+            "41": "Quận Ngô Quyền"
+        },
+        {
+            "42": "Quận Lê Chân"
+        },
+        {
+            "38": "Quận Hải An"
+        },
+        {
+            "39": "Quận Kiến An"
+        },
+        {
+            "37": "Quận Đồ Sơn"
+        },
+        {
+            "109": "Huyện An Dương"
+        },
+        {
+            "110": "Quận Dương Kinh"
+        },
+        {
+            "111": "Huyện Thuỷ Nguyên"
+        },
+        {
+            "112": "Huyện An Lão"
+        },
+        {
+            "113": "Huyện Kiến Thuỵ"
+        },
+        {
+            "114": "Huyện Tiên Lãng"
+        },
+        {
+            "115": "Huyện Vĩnh Bảo"
+        },
+        {
+            "116": "Huyện Cát Hải"
+        },
+        {
+            "117": "Huyện Bạch Long Vĩ"
+        }
+    ]
+},
+{
+    "name": "Hồ Chí Minh",
+    "url": "ho-chi-minh",
+    "cities": [
+        {
+            "1": "Quận 1"
+        },
+        {
+            "14": "Quận 12"
+        },
+        {
+            "693": "Quận Thủ Đức"
+        },
+        {
+            "11": "Quận 9"
+        },
+        {
+            "2": "Quận Gò Vấp"
+        },
+        {
+            "15": "Quận Bình Thạnh"
+        },
+        {
+            "16": "Quận Tân Bình"
+        },
+        {
+            "19": "Quận Tân Phú"
+        },
+        {
+            "17": "Quận Phú Nhuận"
+        },
+        {
+            "4": "Quận 2"
+        },
+        {
+            "5": "Quận 3"
+        },
+        {
+            "12": "Quận 10"
+        },
+        {
+            "13": "Quận 11"
+        },
+        {
+            "6": "Quận 4"
+        },
+        {
+            "7": "Quận 5"
+        },
+        {
+            "8": "Quận 6"
+        },
+        {
+            "10": "Quận 8"
+        },
+        {
+            "18": "Quận Bình Tân"
+        },
+        {
+            "9": "Quận 7"
+        },
+        {
+            "694": "Huyện Củ Chi"
+        },
+        {
+            "695": "Huyện Hóc Môn"
+        },
+        {
+            "696": "Huyện Bình Chánh"
+        },
+        {
+            "697": "Huyện Nhà Bè"
+        },
+        {
+            "698": "Huyện Cần Giờ"
+        }
+    ]
 }
 ]

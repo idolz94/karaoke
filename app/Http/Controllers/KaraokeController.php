@@ -164,11 +164,9 @@ class KaraokeController extends Controller
         $quanhuyen = DB::table('devvn_quanhuyen')->get();
         $district = District::all();
         foreach ($city as $cities) {
-            if($cities->name == "Tỉnh Bắc Ninh"){
+            if($cities->name == "Thành phố Hồ Chí Minh"){
                 foreach ($quanhuyen as $value) {
-                        
                         if($cities->matp == $value->matp){
-                       
                             $name = trim(str_replace("Huyện",'',$value->name));
                             foreach ($district as $key) {
                             
@@ -185,7 +183,7 @@ class KaraokeController extends Controller
             foreach ($diff as $key) {
                 array_push($get,$key);
             }
-            $cities = trim(str_replace("Tỉnh",'',$cities->name));
+            $cities = trim(str_replace("Thành phố ",'',$cities->name));
             foreach ($get as $key => $value) {
                 
                     $all['name'] = $cities;
