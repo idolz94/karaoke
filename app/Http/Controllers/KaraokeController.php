@@ -159,47 +159,50 @@ class KaraokeController extends Controller
 		return response()->json(['Message'=>$data],200); 
       
     }
-    // public function get(){
-    //     $citiesDB = City::all();
-    //     $city = DB::table('devvn_tinhthanhpho')->get();
-    //     $quanhuyen = DB::table('devvn_quanhuyen')->get();
-    //     $district = District::all();
-    //     foreach ($city as $cities) {
-    //         if($cities->name == "Tỉnh Quảng Nam"){
-    //             foreach ($quanhuyen as $value) {
-    //                     if($cities->matp == $value->matp){
-    //                         $name = trim(str_replace("Thành phố ",'',$value->name));
-                      
-    //                         foreach ($district as $key) {
-    //                         $key->name = trim(str_replace("Tp.",'',$key->name));
+    public function get(){
+        $citiesDB = City::all();
+        $city = DB::table('devvn_tinhthanhpho')->get();
+        $quanhuyen = DB::table('devvn_quanhuyen')->get();
+        $district = District::all();
+        foreach ($city as $cities) {
+            if($cities->name == "Tỉnh Hà Giang"){
+          
+                foreach ($quanhuyen as $value) {
+                        if($cities->matp == $value->matp){
+                            $name = trim(str_replace("Thành phố ",'',$value->name));
                             
-    //                             if($key->name == $name){
-    //                                 $get[$key->id] = $value->name;
-    //                             }else{
-    //                             $a[] = $value->name;
-    //                             }
-    //                         }
-    //                     }   
-    //                 }
-                  
-    //             $diff = array_unique(array_diff($a,$get));
-    //         $merge = array_merge($get,$diff);
-    //         foreach ($diff as $key) {
-    //             array_push($get,$key);
-    //         }
-        
-    //         $cities = trim(str_replace("Tỉnh ",'',$cities->name));
-    //         foreach ($citiesDB as $cityDB) {   
-    //             if($cityDB->name == $cities){
-    //                 foreach ($get as $key => $value) {
-    //                         $all['name'] = $cityDB->name;
-    //                         $all['url'] = $cityDB->url;
-    //                         $all['cities'][] = [$key => $value];
-    //                 }
-    //             }
-    //         }
-    //         return response()->json(['Message'=>$all],200); 
-    //         }
-    //     }
-    // }
+                            foreach ($district as $key) {
+                     
+                                $key->name = trim(str_replace("Thị xã",'',$key->name));
+                                if($key->name == $name){
+                                
+                                    $get[$key->id] = $value->name;
+                                }else{
+                                $a[] = $value->name;
+                                }
+                            }
+                        }   
+                    }
+            
+                $diff = array_unique(array_diff($a,$get));
+            $merge = array_merge($get,$diff);
+            foreach ($diff as $key) {
+                array_push($get,$key);
+            }
+
+            $cities = trim(str_replace("Tỉnh ",'',$cities->name));
+            foreach ($citiesDB as $cityDB) {   
+                if($cityDB->name == $cities){
+                 
+                    foreach ($get as $key => $value) {
+                            $all['name'] = $cityDB->name;
+                            $all['url'] = $cityDB->url;
+                            $all['cities'][] = [$key => $value];
+                    }
+                }
+            }
+            return response()->json(['Message'=>$all],200); 
+            }
+        }
+    }
 }
