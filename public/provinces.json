@@ -378,5 +378,83 @@
             "698": "Huyện Cần Giờ"
         }
     ]
+},
+{
+    "name": "Bình Thuận",
+    "url": "binh-thuan",
+    "cities": [
+        {
+            "139": "Thành phố Phan Thiết"
+        },
+        {
+            "141": "Huyện Tuy Phong"
+        },
+        {
+            "142": "Thị xã La Gi"
+        },
+        {
+            "143": "Huyện Bắc Bình"
+        },
+        {
+            "144": "Huyện Hàm Thuận Bắc"
+        },
+        {
+            "145": "Huyện Hàm Thuận Nam"
+        },
+        {
+            "146": "Huyện Tánh Linh"
+        },
+        {
+            "147": "Huyện Đức Linh"
+        },
+        {
+            "148": "Huyện Hàm Tân"
+        },
+        {
+            "149": "Huyện Phú Quí"
+        }
+    ]
+},
+{
+    "name": "Lâm Đồng",
+    "url": "lam-dong",
+    "cities": [
+        {
+            "246": "Thành phố Đà Lạt"
+        },
+        {
+            "247": "Thành phố Bảo Lộc"
+        },
+        {
+            "256": "Huyện Lâm Hà"
+        },
+        {
+            "257": "Huyện Đức Trọng"
+        },
+        {
+            "258": "Huyện Đam Rông"
+        },
+        {
+            "259": "Huyện Lạc Dương"
+        },
+        {
+            "260": "Huyện Đơn Dương"
+        },
+        {
+            "261": "Huyện Di Linh"
+        },
+        {
+            "262": "Huyện Bảo Lâm"
+        },
+        {
+            "263": "Huyện Đạ Huoai"
+        },
+        {
+            "264": "Huyện Đạ Tẻh"
+        },
+        {
+            "265": "Huyện Cát Tiên"
+        }
+    ]
 }
 ]

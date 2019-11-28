@@ -165,14 +165,13 @@ class KaraokeController extends Controller
     //     $quanhuyen = DB::table('devvn_quanhuyen')->get();
     //     $district = District::all();
     //     foreach ($city as $cities) {
-    //         if($cities->name == "Tỉnh Bà Rịa - Vũng Tàu"){
+    //         if($cities->name == "Tỉnh Lâm Đồng"){
     //             foreach ($quanhuyen as $value) {
     //                     if($cities->matp == $value->matp){
     //                         $name = trim(str_replace("Huyện",'',$value->name));
     //                         foreach ($district as $key) {
-                        
+                                
     //                             if($key->name == $name){
-                              
     //                                 $get[$key->id] = $value->name;
     //                             }else{
     //                             $a[] = $value->name;
@@ -180,12 +179,14 @@ class KaraokeController extends Controller
     //                         }
     //                     }   
     //                 }
+                  
     //             $diff = array_unique(array_diff($a,$get));
     //         $merge = array_merge($get,$diff);
     //         foreach ($diff as $key) {
     //             array_push($get,$key);
     //         }
-    //         $cities = trim(str_replace("Tỉnh Bà Rịa - ",'',$cities->name));
+        
+    //         $cities = trim(str_replace("Tỉnh",'',$cities->name));
     //         foreach ($citiesDB as $cityDB) {   
     //             if($cityDB->name == $cities){
     //                 foreach ($get as $key => $value) {
