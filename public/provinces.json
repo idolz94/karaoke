@@ -45,13 +45,13 @@
             "688": "Huyện Thanh Trì"
         },
         {
-            "23": "Quận Bắc Từ Liêm"
+            "690": "Quận Bắc Từ Liêm"
         },
         {
             "680": "Huyện Mê Linh"
         },
         {
-            "123": "Quận Hà Đông"
+            "23": "Quận Hà Đông"
         },
         {
             "692": "Thị xã Sơn Tây"
@@ -171,19 +171,19 @@
             "118": "Huyện Phong Điền"
         },
         {
-            "119": "Quận Bình Thuỷ"
+            "1180": "Quận Bình Thuỷ"
         },
         {
-            "120": "Quận Thốt Nốt"
+            "1181": "Quận Thốt Nốt"
         },
         {
-            "121": "Huyện Vĩnh Thạnh"
+            "1182": "Huyện Vĩnh Thạnh"
         },
         {
-            "122": "Huyện Cờ Đỏ"
+            "1183": "Huyện Cờ Đỏ"
         },
         {
-            "123": "Huyện Thới Lai"
+            "1184": "Huyện Thới Lai"
         }
     ]
 },
@@ -541,6 +541,177 @@
         },
         {
             "560": "Huyện Cô Tô"
+        }
+    ]
+},
+{
+    "name": "Huế",
+    "url": "hue",
+    "cities": [
+        {
+            "301": "Thành phố Huế"
+        },
+        {
+            "302": "Thị xã Hương Thủy"
+        },
+        {
+            "303": "Huyện Phong Điền"
+        },
+        {
+            "304": "Huyện Quảng Điền"
+        },
+        {
+            "305": "Huyện Phú Vang"
+        },
+        {
+            "306": "Thị xã Hương Trà"
+        },
+        {
+            "307": "Huyện A Lưới"
+        },
+        {
+            "308": "Huyện Phú Lộc"
+        },
+        {
+            "309": "Huyện Nam Đông"
+        }
+    ]
+},
+{
+    "name": "Bình Dương",
+    "url": "binh-duong",
+    "cities": [
+        {
+            "122": "Thành phố Thủ Dầu Một"
+        },
+        {
+            "123": "Huyện Bàu Bàng"
+        },
+        {
+            "124": "Huyện Dầu Tiếng"
+        },
+        {
+            "125": "Thị xã Bến Cát"
+        },
+        {
+            "126": "Huyện Phú Giáo"
+        },
+        {
+            "127": "Thị xã Tân Uyên"
+        },
+        {
+            "128": "Thị xã Dĩ An"
+        },
+        {
+            "129": "Thị xã Thuận An"
+        },
+        {
+            "130": "Huyện Bắc Tân Uyên"
+        }
+    ]
+},
+{
+    "name": "Hải Dương",
+    "url": "hai-duong",
+    "cities": [
+        {
+            "310": "Thành phố Hải Dương"
+        },
+        {
+            "311": "Thị xã Chí Linh"
+        },
+        {
+            "312": "Huyện Nam Sách"
+        },
+        {
+            "313": "Huyện Kinh Môn"
+        },
+        {
+            "314": "Huyện Kim Thành"
+        },
+        {
+            "315": "Huyện Thanh Hà"
+        },
+        {
+            "316": "Huyện Cẩm Giàng"
+        },
+        {
+            "317": "Huyện Bình Giang"
+        },
+        {
+            "318": "Huyện Gia Lộc"
+        },
+        {
+            "319": "Huyện Tứ Kỳ"
+        },
+        {
+            "320": "Huyện Ninh Giang"
+        },
+        {
+            "321": "Huyện Thanh Miện"
+        }
+    ]
+},
+{
+    "name": "Ninh Thuận",
+    "url": "ninh-thuan",
+    "cities": [
+        {
+            "621": "Thành phố Phan Rang-Tháp Chàm"
+        },
+        {
+            "622": "Huyện Bác Ái"
+        },
+        {
+            "623": "Huyện Ninh Sơn"
+        },
+        {
+            "624": "Huyện Ninh Hải"
+        },
+        {
+            "625": "Huyện Ninh Phước"
+        },
+        {
+            "626": "Huyện Thuận Bắc"
+        },
+        {
+            "627": "Huyện Thuận Nam"
+        }
+    ]
+},
+{
+    "name": "Nam Định",
+    "url": "nam-dinh",
+    "cities": [
+        {
+            "527": "Thành phố Nam Định"
+        },
+        {
+            "528": "Huyện Mỹ Lộc"
+        },
+        {
+            "529": "Huyện Vụ Bản"
+        },
+        {
+            "530": "Huyện Ý Yên"
+        },
+        {
+            "531": "Huyện Nghĩa Hưng"
+        },
+        {
+            "532": "Huyện Nam Trực"
+        },
+        {
+            "533": "Huyện Trực Ninh"
+        },
+        {
+            "534": "Huyện Xuân Trường"
+        },
+        {
+            "535": "Huyện Giao Thủy"
+        },
+        {
+            "536": "Huyện Hải Hậu"
         }
     ]
 }
