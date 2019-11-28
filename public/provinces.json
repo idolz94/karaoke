@@ -714,5 +714,140 @@
             "536": "Huyện Hải Hậu"
         }
     ]
+},
+{
+    "name": "Tiền Giang",
+    "url": "tien-giang",
+    "cities": [
+        {
+            "271": "Thành phố Mỹ Tho"
+        },
+        {
+            "278": "Thị xã Cai Lậy"
+        },
+        {
+            "279": "Thị xã Gò Công"
+        },
+        {
+            "280": "Huyện Tân Phước"
+        },
+        {
+            "281": "Huyện Cái Bè"
+        },
+        {
+            "282": "Huyện Cai Lậy"
+        },
+        {
+            "283": "Huyện Châu Thành"
+        },
+        {
+            "284": "Huyện Chợ Gạo"
+        },
+        {
+            "285": "Huyện Gò Công Tây"
+        },
+        {
+            "286": "Huyện Gò Công Đông"
+        },
+        {
+            "287": "Huyện Tân Phú Đông"
+        }
+    ]
+},
+{
+    "name": "Kon Tum",
+    "url": "kon-tum",
+    "cities": [
+        {
+            "412": "Thành phố Kon Tum"
+        },
+        {
+            "413": "Huyện Đắk Glei"
+        },
+        {
+            "414": "Huyện Ngọc Hồi"
+        },
+        {
+            "415": "Huyện Đắk Tô"
+        },
+        {
+            "416": "Huyện Kon Plông"
+        },
+        {
+            "417": "Huyện Kon Rẫy"
+        },
+        {
+            "418": "Huyện Đắk Hà"
+        },
+        {
+            "419": "Huyện Sa Thầy"
+        },
+        {
+            "420": "Huyện Tu Mơ Rông"
+        },
+        {
+            "421": "Huyện Ia H' Drai"
+        }
+    ]
+},
+{
+    "name": "Quảng Nam",
+    "url": "quang-nam",
+    "cities": [
+        {
+            "575": "Thành phố Tam Kỳ"
+        },
+        {
+            "576": "Thành phố Hội An"
+        },
+        {
+            "577": "Huyện Tây Giang"
+        },
+        {
+            "578": "Huyện Đông Giang"
+        },
+        {
+            "579": "Huyện Đại Lộc"
+        },
+        {
+            "580": "Thị xã Điện Bàn"
+        },
+        {
+            "581": "Huyện Duy Xuyên"
+        },
+        {
+            "582": "Huyện Quế Sơn"
+        },
+        {
+            "583": "Huyện Nam Giang"
+        },
+        {
+            "584": "Huyện Phước Sơn"
+        },
+        {
+            "585": "Huyện Hiệp Đức"
+        },
+        {
+            "586": "Huyện Thăng Bình"
+        },
+        {
+            "587": "Huyện Tiên Phước"
+        },
+        {
+            "588": "Huyện Bắc Trà My"
+        },
+        {
+            "589": "Huyện Nam Trà My"
+        },
+        {
+            "590": "Huyện Núi Thành"
+        },
+        {
+            "591": "Huyện Phú Ninh"
+        },
+        {
+            "592": "Huyện Nông Sơn"
+        }
+    ]
 }
 ]
