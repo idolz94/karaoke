@@ -161,48 +161,83 @@ class KaraokeController extends Controller
     }
     public function get(){
         $citiesDB = City::all();
-        $city = DB::table('devvn_tinhthanhpho')->get();
+        $citys = DB::table('devvn_tinhthanhpho')->get();
         $quanhuyen = DB::table('devvn_quanhuyen')->get();
         $district = District::all();
-        foreach ($city as $cities) {
-            if($cities->name == "Tỉnh Hà Giang"){
-          
-                foreach ($quanhuyen as $value) {
-                        if($cities->matp == $value->matp){
-                            $name = trim(str_replace("Thành phố ",'',$value->name));
-                            
-                            foreach ($district as $key) {
-                     
-                                $key->name = trim(str_replace("Thị xã",'',$key->name));
-                                if($key->name == $name){
-                                
-                                    $get[$key->id] = $value->name;
-                                }else{
-                                $a[] = $value->name;
+        $count = 0;
+        foreach ($citys as $city) {
+            $name = trim(str_replace("Thành phố ",'',$city->name));
+            foreach ($citiesDB as $cities) {
+                if($name == $cities->name){
+                    foreach ($quanhuyen as $item) {
+                     if($city->matp == $item->matp){
+                            $nameQH = trim(str_replace("Huyện ",'',$item->name));
+                            foreach ($district as $key => $value) {
+                                if($value->city_id == $cities->id){
+                                    if($value->name == $nameQH){
+                                        $get['name'] = $cities->name;
+                                        $get['url'] = $cities->url;
+                                        $get['cities'][] = [$value->id =>$value->name];
+                                    }
+                                    $a[] = [$value->id.$count++ =>$value->name];
                                 }
+                          
                             }
-                        }   
+                            
+                    
+                        }
+                   
+                        }
+                       
+                     
                     }
-            
-                $diff = array_unique(array_diff($a,$get));
-            $merge = array_merge($get,$diff);
-            foreach ($diff as $key) {
-                array_push($get,$key);
+                
             }
-
-            $cities = trim(str_replace("Tỉnh ",'',$cities->name));
-            foreach ($citiesDB as $cityDB) {   
-                if($cityDB->name == $cities){
-                 
-                    foreach ($get as $key => $value) {
-                            $all['name'] = $cityDB->name;
-                            $all['url'] = $cityDB->url;
-                            $all['cities'][] = [$key => $value];
-                    }
-                }
-            }
-            return response()->json(['Message'=>$all],200); 
-            }
+       
         }
+    //        $citiesDB = City::all();
+    //     $city = DB::table('devvn_tinhthanhpho')->get();
+    //     $quanhuyen = DB::table('devvn_quanhuyen')->get();
+    //     $district = District::all();
+    //     foreach ($city as $cities) {
+    //         if($cities->name == "Tỉnh Hà Giang"){
+          
+    //             foreach ($quanhuyen as $value) {
+    //                     if($cities->matp == $value->matp){
+    //                         $name = trim(str_replace("Thành phố ",'',$value->name));
+                            
+    //                         foreach ($district as $key) {
+                     
+    //                             $key->name = trim(str_replace("Thị xã",'',$key->name));
+    //                             if($key->name == $name){
+                                
+    //                                 $get[$key->id] = $value->name;
+    //                             }else{
+    //                             $a[] = $value->name;
+    //                             }
+    //                         }
+    //                     }   
+    //                 }
+            
+    //             $diff = array_unique(array_diff($a,$get));
+    //         $merge = array_merge($get,$diff);
+    //         foreach ($diff as $key) {
+    //             array_push($get,$key);
+    //         }
+    //         $cities = trim(str_replace("Tỉnh ",'',$cities->name));
+    //         foreach ($citiesDB as $cityDB) {   
+    //             if($cityDB->name == $cities){
+                 
+    //                 foreach ($get as $key => $value) {
+    //                         $all['name'] = $cityDB->name;
+    //                         $all['url'] = $cityDB->url;
+    //                         $all['cities'][] = [$key => $value];
+    //                 }
+    //             }
+    //         }
+    //         return response()->json(['Message'=>$all],200); 
+    //         }
+    //     }
+    // }
     }
 }
