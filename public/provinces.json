@@ -456,5 +456,92 @@
             "265": "Huyện Cát Tiên"
         }
     ]
+},
+{
+    "name": "Đồng Nai",
+    "url": "dong-nai",
+    "cities": [
+        {
+            "57": "Thành phố Biên Hòa"
+        },
+        {
+            "66": "Thị xã Long Khánh"
+        },
+        {
+            "67": "Huyện Tân Phú"
+        },
+        {
+            "48": "Huyện Định Quán"
+        },
+        {
+            "52": "Huyện Trảng Bom"
+        },
+        {
+            "53": "Huyện Thống Nhất"
+        },
+        {
+            "49": "Huyện Long Thành"
+        },
+        {
+            "55": "Huyện Nhơn Trạch"
+        },
+        {
+            "68": "Huyện Vĩnh Cửu"
+        },
+        {
+            "69": "Huyện Cẩm Mỹ"
+        },
+        {
+            "70": "Huyện Xuân Lộc"
+        }
+    ]
+},
+{
+    "name": "Quảng Ninh",
+    "url": "quang-ninh",
+    "cities": [
+        {
+            "547": "Thành phố Hạ Long"
+        },
+        {
+            "548": "Thành phố Móng Cái"
+        },
+        {
+            "549": "Thành phố Cẩm Phả"
+        },
+        {
+            "550": "Thành phố Uông Bí"
+        },
+        {
+            "551": "Huyện Bình Liêu"
+        },
+        {
+            "552": "Huyện Tiên Yên"
+        },
+        {
+            "553": "Huyện Đầm Hà"
+        },
+        {
+            "554": "Huyện Hải Hà"
+        },
+        {
+            "555": "Huyện Ba Chẽ"
+        },
+        {
+            "556": "Huyện Vân Đồn"
+        },
+        {
+            "557": "Huyện Hoành Bồ"
+        },
+        {
+            "558": "Thị xã Đông Triều"
+        },
+        {
+            "559": "Thị xã Quảng Yên"
+        },
+        {
+            "560": "Huyện Cô Tô"
+        }
+    ]
 }
 ]

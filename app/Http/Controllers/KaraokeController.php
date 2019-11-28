@@ -165,11 +165,12 @@ class KaraokeController extends Controller
     //     $quanhuyen = DB::table('devvn_quanhuyen')->get();
     //     $district = District::all();
     //     foreach ($city as $cities) {
-    //         if($cities->name == "Tỉnh Lâm Đồng"){
+    //         if($cities->name == "Tỉnh Quảng Ninh"){
     //             foreach ($quanhuyen as $value) {
     //                     if($cities->matp == $value->matp){
-    //                         $name = trim(str_replace("Huyện",'',$value->name));
+    //                         $name = trim(str_replace("Thành phố",'',$value->name));
     //                         foreach ($district as $key) {
+    //                         $key->name = trim(str_replace("Tp.",'',$key->name));
                                 
     //                             if($key->name == $name){
     //                                 $get[$key->id] = $value->name;
