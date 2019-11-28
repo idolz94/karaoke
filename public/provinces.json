@@ -188,8 +188,8 @@
     ]
 },
 {
-    "name": "Bà Rịa - Vũng Tàu",
-    "url": "ba-ria-vung-tau",
+    "name": "Vũng Tàu",
+    "url": "vung-tau",
     "cities": [
         {
             "58": "Thành phố Vũng Tàu"
@@ -303,7 +303,7 @@
 },
 {
     "name": "Hồ Chí Minh",
-    "url": "ho-chi-minh",
+    "url": "tp-hcm",
     "cities": [
         {
             "1": "Quận 1"
