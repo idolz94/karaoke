@@ -178,8 +178,9 @@ class KaraokeController extends Controller
                                         $get['name'] = $cities->name;
                                         $get['url'] = $cities->url;
                                         $get['cities'][] = [$value->id =>$value->name];
-                                    }
+                                    }else{
                                     $a[] = [$value->id.$count++ =>$value->name];
+                                    }
                                 }
                           
                             }
